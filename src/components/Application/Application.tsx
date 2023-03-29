@@ -3,10 +3,17 @@ export const Application = () => {
     <>
       <h1>Job Application</h1>
       <h2>Section 1</h2>
+      <p>getByText test</p>
       <form>
         <div>
           <label htmlFor="name">Name</label>
-          <input type="text" id="name" />
+          <input
+            type="text"
+            id="name"
+            placeholder="Write your correct name"
+            value="milkboy264"
+            // onChange={() => {}} // Test 통과를 위한 임시 함수 선언
+          />
         </div>
         <div>
           <label htmlFor="bio">Bio</label>

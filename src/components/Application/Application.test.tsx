@@ -14,6 +14,9 @@ describe("Application Test", () => {
     });
     expect(sectionTitleEl).toBeInTheDocument();
 
+    const paragraphEl = screen.getByText("getByText test");
+    expect(paragraphEl).toBeInTheDocument();
+
     const nameEl = screen.getByRole("textbox", {
       name: "Name",
     });
@@ -23,6 +26,14 @@ describe("Application Test", () => {
       selector: "input",
     });
     expect(nameElByLabel).toBeInTheDocument();
+
+    const nameElByPlaceholder = screen.getByPlaceholderText(
+      "Write your correct name"
+    );
+    expect(nameElByPlaceholder).toBeInTheDocument();
+
+    const nameElByDisplayValue = screen.getByDisplayValue("milkboy2564");
+    expect(nameElByDisplayValue).toBeInTheDocument();
 
     const bioEl = screen.getByRole("textbox", {
       name: "Bio",
