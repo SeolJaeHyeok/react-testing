@@ -14,6 +14,12 @@ describe("Application Test", () => {
     });
     expect(sectionTitleEl).toBeInTheDocument();
 
+    const spanElByTitle = screen.getByTitle("milkboy2564");
+    expect(spanElByTitle).toBeInTheDocument();
+
+    const divByTestId = screen.getByTestId("testId");
+    expect(divByTestId).toBeInTheDocument();
+
     const paragraphEl = screen.getByText("getByText test");
     expect(paragraphEl).toBeInTheDocument();
 
@@ -34,6 +40,9 @@ describe("Application Test", () => {
 
     const nameElByDisplayValue = screen.getByDisplayValue("milkboy2564");
     expect(nameElByDisplayValue).toBeInTheDocument();
+
+    const nameElByAlt = screen.getByAltText("name");
+    expect(nameElByAlt).toBeInTheDocument();
 
     const bioEl = screen.getByRole("textbox", {
       name: "Bio",

@@ -4,15 +4,18 @@ export const Application = () => {
       <h1>Job Application</h1>
       <h2>Section 1</h2>
       <p>getByText test</p>
+      <span title="milkboy2564"></span>
+      <div data-testid="testId">Test Id</div>
       <form>
         <div>
           <label htmlFor="name">Name</label>
           <input
+            alt="name"
             type="text"
             id="name"
             placeholder="Write your correct name"
-            value="milkboy264"
-            // onChange={() => {}} // Test 통과를 위한 임시 함수 선언
+            value="milkboy2564"
+            onChange={() => {}} // Test 통과를 위한 임시 함수 선언
           />
         </div>
         <div>
