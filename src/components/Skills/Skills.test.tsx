@@ -16,5 +16,21 @@ describe('Skills', () => {
 
     const listEls = screen.getAllByRole('listitem');
     expect(listEls).toHaveLength(skills.length)
+  });
+
+  test('Login Button을 렌더링한다.', () => {
+    render(<Skills skills={skills}/>)
+
+    const buttonEl = screen.getByRole('button', {
+      name: "Login",
+    });
+    expect(buttonEl).toBeInTheDocument();
+  })
+
+  test('Start learning Button을 렌더링 하지 않는다.', () => {
+    render(<Skills skills={skills} />);
+
+    const startLearningButton = screen.queryByRole(/start learning/i);
+    expect(startLearningButton).not.toBeInTheDocument();
   })
 })
