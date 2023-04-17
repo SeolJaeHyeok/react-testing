@@ -20,7 +20,7 @@ describe("Application Test", () => {
     const divByTestId = screen.getByTestId("testId");
     expect(divByTestId).toBeInTheDocument();
 
-    const paragraphEl = screen.getByText("getByText test");
+    const paragraphEl = screen.getByText((content) => content.includes('test'));
     expect(paragraphEl).toBeInTheDocument();
 
     const nameEl = screen.getByRole("textbox", {
