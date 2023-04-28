@@ -4,7 +4,7 @@ import App from './App';
 test('Change to Blue가 적힌 버튼을 렌더링한다.', () => {
   render(<App />);
   const colorButton = screen.getByRole('button', {
-    name: 'Change to Blue',
+    name: 'Change to blue',
   });
 
   // https://github.com/testing-library/jest-dom/issues/461
@@ -42,11 +42,11 @@ test('버튼을 클릭하면 파란색으로 변경된다.', () => {
   render(<App />);
 
   const colorButton = screen.getByRole('button', {
-    name: 'Change to Blue',
+    name: 'Change to blue',
   });
 
   // Click Event 발생
   fireEvent.click(colorButton);
 
-  expect(colorButton).toHaveTextContent('Change to Red');
+  expect(colorButton).toHaveTextContent('Change to red');
 });
