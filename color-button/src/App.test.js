@@ -48,5 +48,23 @@ test('버튼을 클릭하면 파란색으로 변경된다.', () => {
   // Click Event 발생
   fireEvent.click(colorButton);
 
+  expect(colorButton).toHaveStyle({
+    'background-color': 'blue',
+  });
+
   expect(colorButton).toHaveTextContent('Change to red');
+});
+
+test('체크박스 초기 조건을 테스트한다.', () => {
+  render(<App />);
+  const colorButton = screen.getByRole('button', {
+    name: 'Change to blue',
+  });
+
+  // 버튼이 disabled 되어있는가
+  expect(colorButton).toBeEnabled();
+
+  // 체크박스가 체크되어있지 않는가
+  const checkBox = screen.getByRole('checkbox');
+  expect(checkBox).not.toBeChecked();
 });
