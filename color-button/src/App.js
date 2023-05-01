@@ -1,6 +1,8 @@
 import { useState } from 'react';
 import './App.css';
 
+export function replaceCamelCaseToSpace(colorName) {}
+
 function App() {
   const [buttonBGColor, setButtonBGColor] = useState('red');
   const [checked, setChecked] = useState(false);

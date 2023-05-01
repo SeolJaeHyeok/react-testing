@@ -1,5 +1,5 @@
 import { fireEvent, render, screen } from '@testing-library/react';
-import App from './App';
+import App, { replaceCamelCaseToSpace } from './App';
 
 test('Change to Blue가 적힌 버튼을 렌더링한다.', () => {
   render(<App />);
@@ -137,5 +137,19 @@ test('체크박스 두 번 클릭 시 버튼 색상 회색 다음 파랑색으�
   expect(colorButton).toBeEnabled();
   expect(colorButton).toHaveStyle({
     'background-color': 'blue',
+  });
+});
+
+describe('CamelCase로 이루어진 색상을 띄어쓰기로 구분한다.', () => {
+  test('주어진 색상 내 Camel Case로 이루어진 대문자가 하나도 없는 경우를 테스트한다.', () => {
+    expect(replaceCamelCaseToSpace('Red')).toBe('Red');
+  });
+
+  test('글자 내에 Camel Case로 이루어진 대문자가 하나인 경우를 테스트한다.', () => {
+    expect(replaceCamelCaseToSpace('MidnightBlue')).toBe('Midnight Blue');
+  });
+
+  test('글자 내에 Camel Case로 이루어진 대문자가 여러 개인 경우를 테스트한다.', () => {
+    expect(replaceCamelCaseToSpace('VioletDarkRed')).toBe('Violet Dark Red');
   });
 });
