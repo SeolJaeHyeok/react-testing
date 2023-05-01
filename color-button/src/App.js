@@ -6,10 +6,10 @@ export function replaceCamelCaseToSpace(colorName) {
 }
 
 function App() {
-  const [buttonBGColor, setButtonBGColor] = useState('red');
+  const [buttonBGColor, setButtonBGColor] = useState('MediumVioletRed');
   const [checked, setChecked] = useState(false);
 
-  const newButtonColor = buttonBGColor === 'red' ? 'blue' : 'red';
+  const newButtonColor = buttonBGColor === 'MediumVioletRed' ? 'MidnightBlue' : 'MediumVioletRed';
   return (
     <div>
       <button
@@ -17,7 +17,7 @@ function App() {
         onClick={() => setButtonBGColor(newButtonColor)}
         style={{ backgroundColor: checked ? 'gray' : buttonBGColor }}
       >
-        Change to {newButtonColor}
+        Change to {replaceCamelCaseToSpace(newButtonColor)}
       </button>
       <label htmlFor='disable-button'>Disable Button</label>
       <input
