@@ -89,7 +89,7 @@ test('체크박스를 처음 클릭했을 때 활성 상태로 변화하고 두 
   expect(colorButton).toBeEnabled();
 });
 
-test('체크박스 활성화 시 버튼 색상 회색으로 변경', () => {
+test('체크박스 두 번 클릭 시 버튼 색상 회색 다음 빨강색으로 변경', () => {
   render(<App />);
   const colorButton = screen.getByRole('button', {
     name: 'Change to blue',
@@ -104,9 +104,16 @@ test('체크박스 활성화 시 버튼 색상 회색으로 변경', () => {
   expect(colorButton).toHaveStyle({
     'background-color': 'gray',
   });
+
+  // 체크 박스 비활성화 -> 버튼 활성화 및 색상 변경(red)
+  fireEvent.click(checkbox);
+  expect(colorButton).toBeEnabled();
+  expect(colorButton).toHaveStyle({
+    'background-color': 'red',
+  });
 });
 
-test('체크박스 비활성화 시 버튼 색상 빨간색으로 변경', () => {
+test('체크박스 두 번 클릭 시 버튼 색상 회색 다음 파랑색으로 변경', () => {
   render(<App />);
   const colorButton = screen.getByRole('button', {
     name: 'Change to blue',
@@ -115,10 +122,20 @@ test('체크박스 비활성화 시 버튼 색상 빨간색으로 변경', () =>
     name: 'Disable Button',
   });
 
+  // 버튼 배경색 파랑색으로 변경
+  fireEvent.click(colorButton);
+
   // 체크 박스 비활성화 -> 버튼 활성화 및 색상 변경(red)
+  fireEvent.click(checkbox);
+  expect(colorButton).toBeDisabled();
+  expect(colorButton).toHaveStyle({
+    'background-color': 'gray',
+  });
+
+  // 체크 박스 비활성화 -> 버튼 활성화 및 색상 변경(blue)
   fireEvent.click(checkbox);
   expect(colorButton).toBeEnabled();
   expect(colorButton).toHaveStyle({
-    'background-color': 'red',
+    'background-color': 'blue',
   });
 });

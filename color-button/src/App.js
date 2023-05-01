@@ -10,8 +10,8 @@ function App() {
     <div>
       <button
         disabled={checked}
-        onClick={() => setButtonBGColor((bgColor) => (bgColor === 'red' ? 'blue' : 'red'))}
-        style={{ backgroundColor: buttonBGColor }}
+        onClick={() => setButtonBGColor(newButtonColor)}
+        style={{ backgroundColor: checked ? 'gray' : buttonBGColor }}
       >
         Change to {newButtonColor}
       </button>
